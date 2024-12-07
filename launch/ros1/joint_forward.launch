@@ -1,0 +1,14 @@
+<!--#######################################-->
+<!-- Copyright (c) 2024  Chen zejun.       -->
+<!-- All rights reserved.                  -->
+<!-- Author: Chen zejun jecjune@qq.com     -->
+<!-- Date  : 2024-10-08                    -->
+<!--#######################################-->
+
+<launch>
+
+    <node name="joint_helper" pkg="hex_arm_controller" type="arm_controller.py" output="screen">
+        <remap from="joint_cmd" to="/xtopic_arm/joints_cmd" />
+    </node>
+
+</launch>

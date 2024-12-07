@@ -1,0 +1,3 @@
+<launch>
+    <node name="HexArm2LRDriver" pkg="hex_arm_controller" type="HexArm2LRDriver" args="hexcan0 vcan0" output="screen" />
+</launch>
