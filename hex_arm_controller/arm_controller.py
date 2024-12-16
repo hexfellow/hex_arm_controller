@@ -41,7 +41,7 @@ def main():
 
     for i in range(3):
         extra_param = [
-            HEXARMJointCtlExtraParams(braking_state=None, mit_kp=0.0, mit_kd=0.0),
+            HEXARMJointCtlExtraParams(braking_state=None, mit_kp=0.5, mit_kd=0.1),
             HEXARMJointCtlExtraParams(braking_state=None, mit_kp=None, mit_kd=None),
             HEXARMJointCtlExtraParams(braking_state=None, mit_kp=None, mit_kd=None),
             HEXARMJointCtlExtraParams(braking_state=None, mit_kp=None, mit_kd=None),
