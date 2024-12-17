@@ -19,7 +19,7 @@ def main():
         ["mit_mode", "position_mode", "position_mode", "position_mode", "position_mode", "position_mode"],
         ]
 
-    test_pose = [
+    test_position = [
         [0.0, 0.523598775598, 2.09439265359, 0.0, -1.0472, 0.0],
         [0.0, 0.523598775598, 2.09439265359, 0.0, -1.0472, 0.0],
         [0.0, 0.523598775598, 2.09439265359, 0.0, -1.0472, 0.0],
@@ -32,9 +32,9 @@ def main():
         ]
 
     test_effort = [
-        [0.0, 20.0, 20.0, 20.0, 20.0, 20.0],
-        [0.0, 20.0, 20.0, 20.0, 20.0, 20.0],
-        [0.0, 20.0, 20.0, 20.0, 20.0, 20.0],
+        [0.0, 40.0, 40.0, 40.0, 40.0, 40.0],
+        [0.0, 40.0, 40.0, 40.0, 40.0, 40.0],
+        [0.0, 40.0, 40.0, 40.0, 40.0, 40.0],
         ]
 
     extra_param_test = []
@@ -50,7 +50,7 @@ def main():
             ]
         extra_param_test.append(extra_param)
 
-    arm_controller.init_publish_list(6, test_mode, test_pose, test_speed, test_effort, extra_param_test)
+    arm_controller.init_publish_list(6, test_mode, test_position, test_speed, test_effort, extra_param_test)
 
     ### start test
     try:

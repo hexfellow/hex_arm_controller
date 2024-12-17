@@ -25,16 +25,16 @@ class HEXARMJointCtlExtraParams:
         return json.dumps(param_dict)
 
 class HEXARMJointStateMsg:
-    def __init__(self, motor_cnt, mode, pose, speed, effort, extra_param=None):
+    def __init__(self, motor_cnt, mode, position, velocity, effort, extra_param=None):
         self.motor_cnt = motor_cnt
         self.mode = mode
-        self.pose = pose
-        self.speed = speed
+        self.position = position
+        self.velocity = velocity
         self.effort = effort
         self.extra_param = extra_param
 
     def get_msg(self) -> XmsgArmJointParamList:
-        if len(self.mode) != len(self.pose) or len(self.pose) != len(self.speed) or len(self.speed) != len(self.effort) or len(self.effort) != self.motor_cnt:
+        if len(self.mode) != len(self.position) or len(self.position) != len(self.velocity) or len(self.velocity) != len(self.effort) or len(self.effort) != self.motor_cnt:
             raise InvalidJointStateError(f"Joint parameters not match with motor count: {self.motor_cnt}")
 
         joint_state_msg = XmsgArmJointParamList()
@@ -47,8 +47,8 @@ class HEXARMJointStateMsg:
             else:
                 raise InvalidJointStateError(f"Invalid motor_mode: '{self.mode[i]}'")
 
-            joint_param.pose = self.pose[i]
-            joint_param.speed = self.speed[i]
+            joint_param.position = self.position[i]
+            joint_param.velocity = self.velocity[i]
             joint_param.effort = self.effort[i]
             if self.extra_param is not None:
                 joint_param.extra_param = self.extra_param[i].encode()

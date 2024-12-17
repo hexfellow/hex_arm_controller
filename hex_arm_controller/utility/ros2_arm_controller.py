@@ -25,17 +25,17 @@ class ArmController:
         ### data list
         self.motor_cnt = None
         self.mode = None
-        self.pose = None
-        self.speed = None
+        self.position = None
+        self.velocity = None
         self.effort = None
         self.extra_param = None
 
         self.publish_index = 0
         self.loop_cnt = None
 
-    def publish_joint_state(self, motor_cnt:int, mode:list, pose:list, speed:list, effort:list, extra_param:list):
+    def publish_joint_state(self, motor_cnt:int, mode:list, position:list, velocity:list, effort:list, extra_param:list):
         try:
-            joints = HEXARMJointStateMsg(motor_cnt, mode, pose, speed, effort, extra_param)
+            joints = HEXARMJointStateMsg(motor_cnt, mode, position, velocity, effort, extra_param)
             joints_msg = joints.get_msg()
             self.pub.publish(joints_msg)
 
@@ -44,16 +44,16 @@ class ArmController:
 
 
     ### loop demo below
-    def init_publish_list(self, motor_cnt:int, mode:list, pose:list, speed:list, effort:list, extra_param:list):
-        if len(mode)!=len(pose) or len(pose)!=len(speed) or len(speed)!=len(effort) or len(effort)!=len(extra_param):
+    def init_publish_list(self, motor_cnt:int, mode:list, position:list, velocity:list, effort:list, extra_param:list):
+        if len(mode)!=len(position) or len(position)!=len(velocity) or len(velocity)!=len(effort) or len(effort)!=len(extra_param):
             rospy.logerr("The list length is not consistent, init puhlish list failed.")
             return
         else:
             self.loop_cnt = len(mode)
         self.motor_cnt = motor_cnt
         self.mode = mode
-        self.pose = pose
-        self.speed = speed
+        self.position = position
+        self.velocity = velocity
         self.effort = effort
         self.extra_param = extra_param
 
@@ -63,8 +63,8 @@ class ArmController:
         else:
             self.publish_joint_state(self.motor_cnt, 
                                      self.mode[self.publish_index], 
-                                     self.pose[self.publish_index], 
-                                     self.speed[self.publish_index], 
+                                     self.position[self.publish_index], 
+                                     self.velocity[self.publish_index], 
                                      self.effort[self.publish_index], 
                                      self.extra_param[self.publish_index]
                                     )
