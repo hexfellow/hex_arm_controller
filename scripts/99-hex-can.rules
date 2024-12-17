@@ -1,2 +1,2 @@
-SUBSYSTEMS=="usb", ACTION=="add", ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="606f", NAME="hexcan0", RUN+="/usr/sbin/ip link set hexcan0 type can bitrate 500000", RUN+="/usr/sbin/ip link set hexcan0 up", RUN+="/usr/sbin/ip link add vcan0 type vcan", RUN+="/usr/sbin/ip link set vcan0 up"
+SUBSYSTEMS=="usb", ACTION=="add", ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="606f", NAME="hexcan0", RUN+="/usr/sbin/ip link set hexcan0 type can bitrate 1000000", RUN+="/usr/sbin/ip link set hexcan0 up", RUN+="/usr/sbin/ip link add vcan0 type vcan", RUN+="/usr/sbin/ip link set vcan0 up"
 SUBSYSTEMS=="usb", ACTION=="remove", ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="606f", RUN+="/usr/sbin/ip link set vcan0 down", RUN+="/usr/sbin/ip link delete vcan0"
