@@ -17,7 +17,7 @@ class ArmController:
         self.__rate = self.__node.create_rate(rate)
 
         ### publisher
-        self.pub = self.__node.create_publisher(XmsgArmJointParamList, '/xtopic_arm/joints_cmd', 10)
+        self.pub = self.__node.create_publisher(XmsgArmJointParamList, 'joint_cmd', 10)
 
         self.current_msg_index = 0
         self.test_length = 3
