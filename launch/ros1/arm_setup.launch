@@ -1,0 +1,15 @@
+<launch>
+    <node name="xnode_arm" pkg="xpkg_arm" type="xnode_arm" output="screen" >
+        <param name="can_device" value="vcan0"/>
+        <param name="arm_series" value="01"/>
+        
+<!--         subscribe rename -->
+        <remap from="/xtopic_arm/joints_cmd" to="/xtopic_arm/joints_cmd" />
+        <remap from="/xtopic_arm/joint_states" to="/joint_states" />
+
+<!--         publish rename -->
+        <remap from="/xtopic_arm/json_feedback" to="/xtopic_arm/json_feedback" />
+
+    </node>
+
+</launch>

@@ -72,13 +72,23 @@ driver 4 online
 driver 5 online
 ```
 2. Launch the Arm Configuration
+If you have not installed the xpkg_arm package, you should first install it.
+```
+sudo apt install ros-<ros_version>-xpkg-arm
+```
+**Please make sure that the 'arm_series' in the launch file matches your arm's series**
+- 0x01: saber750d_6dof
+- 0x02: saber750d_7dof
+- 0x03: saber750h_6dof
+- 0x04: saber750h_7dof
+
 Then, run the xpkg_arm package:
 ```
-roslaunch xpkg_arm arm_setup.launch
+roslaunch hex_arm_controller arm_setup.launch
 ```
 or
 ```
-ros2 launch xpkg_arm arm_setup.launch.py
+ros2 launch hex_arm_controller arm_setup.launch.py
 ```
 Now, you can control the arm by publishing the joints_cmd messages to the topic `/xtopic_arm/joints_cmd`.
 3. Run a Simple Example
