@@ -13,7 +13,7 @@ class ArmController:
         rospy.init_node(name, anonymous=True)
 
         ### publisher
-        self.pub = rospy.Publisher('/xtopic_arm/joints_cmd', XmsgArmJointParamList, queue_size=10)
+        self.pub = rospy.Publisher('joint_cmd', XmsgArmJointParamList, queue_size=10)
 
         ### data list
         self.motor_cnt = None
