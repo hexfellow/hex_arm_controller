@@ -14,27 +14,27 @@ def main():
 
     ### init test point
     test_mode = [
-        ["mit_mode", "position_mode", "position_mode", "position_mode", "position_mode", "position_mode"],
-        ["mit_mode", "position_mode", "position_mode", "position_mode", "position_mode", "position_mode"],
-        ["mit_mode", "position_mode", "position_mode", "position_mode", "position_mode", "position_mode"],
+        ["mit_mode", "position_mode", "position_mode", "position_mode", "position_mode", "position_mode", "position_mode"],
+        ["mit_mode", "position_mode", "position_mode", "position_mode", "position_mode", "position_mode", "position_mode"],
+        ["mit_mode", "position_mode", "position_mode", "position_mode", "position_mode", "position_mode", "position_mode"],
         ]
 
     test_position = [
-        [0.0, 0.523598775598, 2.09439265359, 0.0, -1.0472, 0.0],
-        [0.0, 0.523598775598, 2.09439265359, 0.0, -1.0472, 0.0],
-        [0.0, 0.523598775598, 2.09439265359, 0.0, -1.0472, 0.0],
+        [0.0, 0.55, 0.0, -1.1, 0.0, 0.6, 0.0],
+        [0.0, 0.55, 0.0, -1.1, 0.0, 0.6, 0.0],
+        [0.0, 0.55, 0.0, -1.1, 0.0, 0.6, 0.0],
         ]
 
     test_speed = [
-        [0.3, 0.3, 0.3, 0.3, 0.3, 0.3],
-        [0.3, 0.3, 0.3, 0.3, 0.3, 0.3],
-        [0.3, 0.3, 0.3, 0.3, 0.3, 0.3],
+        [0.3, 0.3, 0.3, 0.7, 0.3, 0.3, 0.3],
+        [0.3, 0.3, 0.3, 0.7, 0.3, 0.3, 0.3],
+        [0.3, 0.3, 0.3, 0.7, 0.3, 0.3, 0.3],
         ]
 
     test_effort = [
-        [0.0, 40.0, 40.0, 40.0, 40.0, 40.0],
-        [0.0, 40.0, 40.0, 40.0, 40.0, 40.0],
-        [0.0, 40.0, 40.0, 40.0, 40.0, 40.0],
+        [0.0, 40.0, 40.0, 40.0, 40.0, 40.0, 40.0],
+        [0.0, 40.0, 40.0, 40.0, 40.0, 40.0, 40.0],
+        [0.0, 40.0, 40.0, 40.0, 40.0, 40.0, 40.0],
         ]
 
     extra_param_test = []
@@ -47,10 +47,11 @@ def main():
             HEXARMJointCtlExtraParams(braking_state=None, mit_kp=None, mit_kd=None),
             HEXARMJointCtlExtraParams(braking_state=None, mit_kp=None, mit_kd=None),
             HEXARMJointCtlExtraParams(braking_state=None, mit_kp=None, mit_kd=None),
+            HEXARMJointCtlExtraParams(braking_state=None, mit_kp=None, mit_kd=None),
             ]
         extra_param_test.append(extra_param)
 
-    arm_controller.init_publish_list(6, test_mode, test_position, test_speed, test_effort, extra_param_test)
+    arm_controller.init_publish_list(7, test_mode, test_position, test_speed, test_effort, extra_param_test)
 
     ### start test
     try:
